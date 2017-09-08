@@ -11,7 +11,6 @@ ActionMailer::Base.smtp_settings = {
     :password    => ENV['MAILGUN_SMTP_PASSWORD'],
     :domain      => ENV['glacial-lowlands-43387.herokuapp.com'],
     :authentication  => :plain,
-    
 }
     
     
