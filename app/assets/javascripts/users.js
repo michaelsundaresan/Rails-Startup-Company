@@ -1,11 +1,11 @@
 /* global $, Stripe */
 //Document ready.
-$(document).on('turbolinks:load',function() {
- var theForm = $('#pro_form' );
+$(document).on('turbolinks:load', function() {
+ var theForm = $('#pro_form');
  var submitBtn = $('#form-signup-btn');
  
   //Set Stripe public key.
-  Stripe.setPublishableKey( $('meta[name="stripe-key"]').attr('content'));
+  Stripe.setPublishableKey( $('meta[name="stripe-key"]').attr('content') );
   
   //When user clicks form submit button, we will prevent the default submission behavior.
   submitBtn.click(function(event){
@@ -20,7 +20,7 @@ $(document).on('turbolinks:load',function() {
   var ccNum = $('#card_number').val(),
     cvcNum = $('#card_code').val(),
     expMonth = $('#card_month').val(),
-    expYear = $('#card_year').val();
+    expYear = $('#card_year').val()
     
 //Use Stripe JS library to check for card errors
 var error = false;
@@ -46,10 +46,11 @@ var error = false;
    alert('The expiration date appears to be invalid');
  } 
     
-  //Send card info to Stripe
   if (error) {
     submitBtn.prop('disabled', false).val('Sign Up');
     
+    
+  //Send card info to Stripe
     } else {
       Stripe.createToken({
       number: ccNum,
@@ -59,7 +60,7 @@ var error = false;
     }, stripeResponseHandler);
   }
   
-   return: false;
+   return false;
   });
   
   //Stripe will return back a card token.
@@ -70,7 +71,7 @@ var error = false;
 
   //Inject card token as hidden field into form
   
-  theForm.append($('<input type= "hidden" name= "user[stripe_card_token]">').val(token) );
+  theForm.append( $('<input type= "hidden" name= "user[stripe_card_token]">').val(token) );
   //Submit form to our Rails app
 
   theForm.get(0).submit();
