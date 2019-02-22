@@ -1,3 +1,3 @@
-# README
+Software-as-a-Service Ruby on Rails App
 
-[Upskill](http://upskillcourses.com) Software-as-a-Service Ruby on Rails App
+This was a project I completed in the CoderManual Bootcamp.
